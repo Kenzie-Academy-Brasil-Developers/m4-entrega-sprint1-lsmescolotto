@@ -1,0 +1,21 @@
+{
+  "name": "m4-entrega-sprint1-lsmescolotto",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:Kenzie-Academy-Brasil-Developers/m4-entrega-sprint1-lsmescolotto.git",
+  "author": "Luiza Schmidt Mescolotto <lsmescolotto@gmail.com>",
+  "license": "MIT",
+  "engines": {
+    "node": ">=17"
+  },
+  "scripts": {
+    "dev": "nodemon src/app.js"
+  },
+  "dependencies": {
+    "express": "^4.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.16",
+    "sucrase": "^3.21.0"
+  }
+}
