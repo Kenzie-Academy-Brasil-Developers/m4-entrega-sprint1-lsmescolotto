@@ -1,3 +1,9 @@
-const createUserController = () => {};
+import userRegisterService from "../services/userRegister.service";
 
-export default createUserController;
+const userRegisterController = (request, response) => {
+  createdUser = userRegisterService();
+
+  return response.json(createdUser);
+};
+
+export default userRegisterController;
