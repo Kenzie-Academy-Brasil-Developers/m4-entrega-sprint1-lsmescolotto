@@ -5,7 +5,7 @@ const userRegisterController = async (request, response) => {
 
   const createdUser = await userRegisterService(name, email, password, isAdm);
 
-  return response.json(createdUser);
+  return response.status(201).json(createdUser);
 };
 
 export default userRegisterController;
