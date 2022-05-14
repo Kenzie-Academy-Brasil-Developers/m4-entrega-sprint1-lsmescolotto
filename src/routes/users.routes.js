@@ -4,11 +4,13 @@ import getUserController from "../controllers/getUser.controller";
 import userLoginController from "../controllers/userLogin.controller";
 import userRegisterController from "../controllers/userRegister.controller";
 import userUpdateController from "../controllers/userUpdate.controller";
+import getAllUsersController from "../controllers/getAllUsers.controller";
 
 const userRouter = Router();
 
 userRouter.post("", userRegisterController);
 userRouter.post("/login", userLoginController);
+userRouter.get("", getAllUsersController);
 userRouter.get("/profile", getUserController);
 userRouter.patch("/:uuid", userUpdateController);
 userRouter.delete("/:uuid", deleteUserController);
