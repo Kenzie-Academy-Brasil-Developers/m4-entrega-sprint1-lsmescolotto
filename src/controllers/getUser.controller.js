@@ -1,9 +1,9 @@
 import getUserService from "../services/getUser.service";
 
 const getUserController = (request, response) => {
-  const requestData = request.body;
+  let token = request.headers.authorization;
 
-  const foundUser = getUserService();
+  const foundUser = getUserService(token);
 
   return response.json(foundUser);
 };
