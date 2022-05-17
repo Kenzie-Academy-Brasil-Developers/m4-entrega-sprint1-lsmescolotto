@@ -1,12 +1,11 @@
-import { response } from "express";
 import deleteUserService from "../services/deleteUser.service";
 
 const deleteUserController = (request, response) => {
   const { uuid } = request.params;
 
-  const deletedUserMessage = deleteUserService(uuid);
+  const { status, message } = deleteUserService(uuid);
 
-  return response.json(deletedUserMessage);
+  return response.status(status).json(message);
 };
 
 export default deleteUserController;

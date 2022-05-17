@@ -4,9 +4,9 @@ const userUpdateController = (request, response) => {
   const requestData = request.body;
   const { uuid } = request.params;
 
-  const updatedUser = userUpdateService(uuid, requestData);
+  const { status, message } = userUpdateService(uuid, requestData);
 
-  return response.json(updatedUser);
+  return response.status(status).json(message);
 };
 
 export default userUpdateController;

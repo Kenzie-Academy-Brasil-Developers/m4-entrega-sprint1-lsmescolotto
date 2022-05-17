@@ -3,9 +3,9 @@ import userLoginService from "../services/userLogin.service";
 const userLoginController = (request, response) => {
   const { email, password } = request.body;
 
-  const userLogin = userLoginService(email, password);
+  const { status, message } = userLoginService(email, password);
 
-  return response.json(userLogin);
+  return response.status(status).json(message);
 };
 
 export default userLoginController;
