@@ -1,7 +1,11 @@
 import jwt from "jsonwebtoken";
 import users from "../database";
 
-const verifyUserIdentityAndAdminProfile = (request, response, next) => {
+const verifyUserIdentityAndAdminProfileMiddleware = (
+  request,
+  response,
+  next
+) => {
   const { uuid } = request.params;
 
   let token = request.headers.authorization;
@@ -24,4 +28,4 @@ const verifyUserIdentityAndAdminProfile = (request, response, next) => {
   next();
 };
 
-export default verifyUserIdentityAndAdminProfile;
+export default verifyUserIdentityAndAdminProfileMiddleware;
