@@ -7,6 +7,14 @@ const userUpdateService = (uuid, requestData) => {
     return { status: 404, message: { message: "user not found" } };
   }
 
+  const requestDataKeys = Object.keys(requestData);
+
+  const isAdmKey = requestDataKeys.find((key) => key === "isAdm");
+
+  if (isAdmKey) {
+    return { status: 400, message: { message: "'isAdm' cannot be changed" } };
+  }
+
   const userToUpdate = users[userIndex];
 
   Object.assign(userToUpdate, requestData);
