@@ -11,6 +11,8 @@ const userUpdateService = (uuid, requestData) => {
 
   Object.assign(userToUpdate, requestData);
 
+  userToUpdate.updatedOn = new Date();
+
   return userToUpdate;
 };
 
