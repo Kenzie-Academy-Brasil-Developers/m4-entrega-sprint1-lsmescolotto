@@ -6,12 +6,13 @@ import userRegisterController from "../controllers/userRegister.controller";
 import userUpdateController from "../controllers/userUpdate.controller";
 import getAllUsersController from "../controllers/getAllUsers.controller";
 import verifyTokenMiddleware from "../middlewares/verifyToken.middleware";
-import verifyUserExistenceMiddleware from "../middlewares/verifyUserExistence.middleware";
-import verifyUserIdentityAndAdminProfileMiddleware from "../middlewares/verifyUserIdedentityAndAdminProfile.middleware";
+import verifyEmailAvailabilityMiddleware from "../middlewares/verifyEmailAvailability.middleware";
+import verifyUserIdentityAndAdminProfileMiddleware from "../middlewares/verifyUserIdentityAndAdminProfile.middleware";
+import verifyUuidMiddleware from "../middlewares/verifyUuid.middleware";
 
 const userRouter = Router();
 
-userRouter.post("", verifyUserExistenceMiddleware, userRegisterController);
+userRouter.post("", verifyEmailAvailabilityMiddleware, userRegisterController);
 userRouter.post("/login", userLoginController);
 userRouter.get(
   "",
@@ -21,12 +22,20 @@ userRouter.get(
 userRouter.get("/profile", verifyTokenMiddleware, getUserController);
 userRouter.patch(
   "/:uuid",
-  [verifyTokenMiddleware, verifyUserIdentityAndAdminProfileMiddleware],
+  [
+    verifyTokenMiddleware,
+    verifyUuidMiddleware,
+    verifyUserIdentityAndAdminProfileMiddleware,
+  ],
   userUpdateController
 );
 userRouter.delete(
   "/:uuid",
-  [verifyTokenMiddleware, verifyUserIdentityAndAdminProfileMiddleware],
+  [
+    verifyTokenMiddleware,
+    verifyUuidMiddleware,
+    verifyUserIdentityAndAdminProfileMiddleware,
+  ],
   deleteUserController
 );
 

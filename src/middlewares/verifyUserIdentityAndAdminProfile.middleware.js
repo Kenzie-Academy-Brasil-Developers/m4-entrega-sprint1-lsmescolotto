@@ -22,7 +22,7 @@ const verifyUserIdentityAndAdminProfileMiddleware = (
   );
 
   if (!userById && !userAdm) {
-    return response.status(401).json({ message: "unauthorized" });
+    return response.status(401).json({ message: "missing admin permissions" });
   }
 
   next();

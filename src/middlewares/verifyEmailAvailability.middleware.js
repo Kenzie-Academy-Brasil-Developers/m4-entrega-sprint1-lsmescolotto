@@ -1,6 +1,6 @@
 import users from "../database";
 
-const verifyUserExistenceMiddleware = (request, response, next) => {
+const verifyEmailAvailabilityMiddleware = (request, response, next) => {
   const requestData = request.body;
 
   const foundUser = users.find((user) => user.email === requestData.email);
@@ -11,4 +11,4 @@ const verifyUserExistenceMiddleware = (request, response, next) => {
   next();
 };
 
-export default verifyUserExistenceMiddleware;
+export default verifyEmailAvailabilityMiddleware;
